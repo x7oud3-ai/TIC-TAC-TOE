@@ -18,16 +18,17 @@
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             margin: 0;
             color: white;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* --- تصميم شعار TECH المتحرك (Typing Effect) --- */
+        /* --- تصميم شعار TECH المتحرك --- */
         .tech-container {
-            margin-bottom: 3rem; /* المسافة التي طلبتها */
+            margin-bottom: 3rem;
             transform: translateY(-10px);
         }
 
@@ -52,7 +53,7 @@
             50% { border-color: var(--tech-color-1); }
         }
 
-        /* --- تصميم الزر الخاص بك --- */
+        /* --- تصميم الزر الخاص --- */
         .special-btn {
             border: none;
             position: relative;
@@ -84,10 +85,6 @@
             z-index: 10;
         }
 
-        .special-btn:hover:before {
-            width: 100%;
-        }
-
         .special-btn:before {
             content: '';
             position: absolute;
@@ -98,9 +95,10 @@
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .special-btn:hover:before { width: 100%; }
         .special-btn:hover span { color: #1e1b4b; }
 
-        /* --- باقي تنسيقات اللعبة --- */
+        /* --- باقي التنسيقات --- */
         #game-screen { display: none; }
 
         .cell {
@@ -126,13 +124,25 @@
             border-radius: 32px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* حاوية الإعلانات */
+        .ad-container {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+        }
     </style>
+
+    <!-- بانر إجتماعي (Social Bar) -->
+    <script src="https://pl28708275.effectivegatecpm.com/79/26/1d/79261dee4705fb1b86ce9895cda15fc7.js"></script>
 </head>
 <body>
 
     <!-- الشاشة الرئيسية -->
     <div id="main-menu" class="text-center">
-        <!-- منطقة الشعار المتحرك -->
         <div class="tech-container">
             <span id="typing-text"></span>
         </div>
@@ -145,6 +155,20 @@
         <button id="start-game-btn" class="special-btn">
             <span>PLAY NOW</span>
         </button>
+
+        <!-- نافذة الإعلان 320x50 في القائمة الرئيسية -->
+        <div class="ad-container mt-16">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '6bf3cab0dcca319340165044f3eab584',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="https://www.highperformanceformat.com/6bf3cab0dcca319340165044f3eab584/invoke.js"></script>
+        </div>
     </div>
 
     <!-- شاشة اللعب -->
@@ -185,9 +209,23 @@
                 <div class="cell" data-index="8"></div>
             </div>
 
-            <div class="flex gap-4">
+            <div class="flex gap-4 mb-6">
                 <button id="reset-btn" class="flex-1 bg-white text-slate-900 font-bold py-3 rounded-2xl hover:scale-105 transition shadow-xl">جولة جديدة</button>
                 <button id="clear-scores" class="bg-red-500/10 text-red-400 border border-red-500/20 px-6 py-3 rounded-2xl hover:bg-red-500/20 transition text-sm">تصفير</button>
+            </div>
+
+            <!-- نافذة الإعلان 320x50 أسفل لوحة اللعب -->
+            <div class="ad-container border-t border-white/5 pt-4">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '6bf3cab0dcca319340165044f3eab584',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="https://www.highperformanceformat.com/6bf3cab0dcca319340165044f3eab584/invoke.js"></script>
             </div>
         </div>
     </div>
@@ -205,7 +243,7 @@
     </div>
 
     <script>
-        // --- منطق كتابة شعار TECH ---
+        // منطق كتابة شعار TECH
         const typingText = document.getElementById('typing-text');
         const text = "TECH";
         let charIndex = 0;
@@ -214,9 +252,8 @@
             if (charIndex < text.length) {
                 typingText.textContent += text.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeEffect, 250); // سرعة الكتابة
+                setTimeout(typeEffect, 250);
             } else {
-                // إعادة التأثير بعد فترة
                 setTimeout(() => {
                     typingText.textContent = "";
                     charIndex = 0;
@@ -225,7 +262,6 @@
             }
         }
 
-        // بدء التأثير عند التحميل
         window.onload = () => {
             typeEffect();
         };
@@ -337,3 +373,4 @@
     </script>
 </body>
 </html>
+
