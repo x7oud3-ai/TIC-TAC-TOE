@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحدي X O - النسخة التقنية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Orbitron:wght@700&display=swap');
+        
+        :root {
+            --tech-color-1: #60a5fa;
+            --tech-color-2: #f87171;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* --- تصميم شعار TECH المتحرك (Typing Effect) --- */
+        .tech-container {
+            margin-bottom: 3rem; /* المسافة التي طلبتها */
+            transform: translateY(-10px);
+        }
+
+        #typing-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            border-right: 4px solid var(--tech-color-1);
+            background: linear-gradient(to right, var(--tech-color-1), var(--tech-color-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: blink 0.7s steps(2) infinite;
+            min-height: 1.2em;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: var(--tech-color-1); }
+        }
+
+        /* --- تصميم الزر الخاص بك --- */
+        .special-btn {
+            border: none;
+            position: relative;
+            width: 250px;
+            height: 90px;
+            padding: 0;
+            z-index: 2;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='868' width='2500' viewBox='0 0 726 252.17'%3E%3Cpath d='M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='868' width='2500' viewBox='0 0 726 252.17'%3E%3Cpath d='M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            -webkit-mask-size: 100%;
+            cursor: pointer;
+            background-color: #ffffff22;
+            transform: translateY(8px);
+            transition: transform 0.3s ease;
+        }
+
+        .special-btn span {
+            position: absolute;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 700;
+            left: 50%;
+            top: 39%;
+            letter-spacing: 3px;
+            text-align: center;
+            transform: translate(-50%,-50%);
+            color: white;
+            transition: all 1s ease;
+            z-index: 10;
+        }
+
+        .special-btn:hover:before {
+            width: 100%;
+        }
+
+        .special-btn:before {
+            content: '';
+            position: absolute;
+            width: 0; height: 100%;
+            background-color: white;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .special-btn:hover span { color: #1e1b4b; }
+
+        /* --- باقي تنسيقات اللعبة --- */
+        #game-screen { display: none; }
+
+        .cell {
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cell.x { color: #f87171; text-shadow: 0 0 15px rgba(248, 113, 113, 0.4); }
+        .cell.o { color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.4); }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشاشة الرئيسية -->
+    <div id="main-menu" class="text-center">
+        <!-- منطقة الشعار المتحرك -->
+        <div class="tech-container">
+            <span id="typing-text"></span>
+        </div>
+        
+        <div class="mb-12">
+            <h1 class="text-5xl font-bold mb-4 tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-red-400">TIC TAC TOE</h1>
+            <p class="text-gray-400 uppercase tracking-[0.5em] text-sm">المعركة النهائية</p>
+        </div>
+
+        <button id="start-game-btn" class="special-btn">
+            <span>PLAY NOW</span>
+        </button>
+    </div>
+
+    <!-- شاشة اللعب -->
+    <div id="game-screen" class="container max-w-md mx-auto px-4 py-8">
+        <div class="glass-panel p-6 text-center">
+            <div class="flex justify-between items-center mb-8">
+                <button id="back-to-menu" class="text-xs bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition">الخروج</button>
+                <div class="flex gap-4">
+                    <div class="text-center">
+                        <div class="text-[10px] text-red-400 uppercase font-bold">Player X</div>
+                        <div id="score-x" class="text-2xl font-bold">0</div>
+                    </div>
+                    <div class="text-center border-x border-white/10 px-4">
+                        <div class="text-[10px] text-gray-400 uppercase">Draw</div>
+                        <div id="score-draw" class="text-2xl font-bold">0</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-[10px] text-blue-400 uppercase font-bold">Player O</div>
+                        <div id="score-o" class="text-2xl font-bold">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="status-bar" class="mb-8 py-3 bg-white/5 rounded-2xl border border-white/10">
+                <span class="text-gray-400 text-sm">الدور الآن لـ : </span>
+                <span id="current-player" class="font-bold text-red-400 text-xl ml-2">X</span>
+            </div>
+
+            <div id="board" class="grid grid-cols-3 gap-4 mb-8">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+
+            <div class="flex gap-4">
+                <button id="reset-btn" class="flex-1 bg-white text-slate-900 font-bold py-3 rounded-2xl hover:scale-105 transition shadow-xl">جولة جديدة</button>
+                <button id="clear-scores" class="bg-red-500/10 text-red-400 border border-red-500/20 px-6 py-3 rounded-2xl hover:bg-red-500/20 transition text-sm">تصفير</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal النتيجة -->
+    <div id="modal" class="fixed inset-0 bg-slate-950/90 hidden flex items-center justify-center z-50 p-4 backdrop-blur-md">
+        <div class="bg-slate-900 border border-white/10 p-10 rounded-[2rem] text-center max-w-sm w-full shadow-2xl">
+            <div id="modal-icon" class="text-7xl mb-6">🏆</div>
+            <h2 id="modal-title" class="text-3xl font-bold mb-2">رائع!</h2>
+            <p id="modal-text" class="mb-8 text-gray-400"></p>
+            <button id="modal-close" class="w-full bg-white text-black font-bold py-4 rounded-2xl hover:bg-gray-200 transition text-lg shadow-lg">
+                الاستمرار
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- منطق كتابة شعار TECH ---
+        const typingText = document.getElementById('typing-text');
+        const text = "TECH";
+        let charIndex = 0;
+
+        function typeEffect() {
+            if (charIndex < text.length) {
+                typingText.textContent += text.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeEffect, 250); // سرعة الكتابة
+            } else {
+                // إعادة التأثير بعد فترة
+                setTimeout(() => {
+                    typingText.textContent = "";
+                    charIndex = 0;
+                    typeEffect();
+                }, 3000);
+            }
+        }
+
+        // بدء التأثير عند التحميل
+        window.onload = () => {
+            typeEffect();
+        };
+
+        const mainMenu = document.getElementById('main-menu');
+        const gameScreen = document.getElementById('game-screen');
+        const startBtn = document.getElementById('start-game-btn');
+        const backBtn = document.getElementById('back-to-menu');
+        
+        const cells = document.querySelectorAll('.cell');
+        const statusDisplay = document.getElementById('current-player');
+        const scoreXDisplay = document.getElementById('score-x');
+        const scoreODisplay = document.getElementById('score-o');
+        const scoreDrawDisplay = document.getElementById('score-draw');
+
+        let currentPlayer = 'X';
+        let gameState = ["", "", "", "", "", "", "", "", ""];
+        let gameActive = true;
+        let scores = { X: 0, O: 0, draw: 0 };
+
+        const winningConditions = [
+            [0,1,2], [3,4,5], [6,7,8],
+            [0,3,6], [1,4,7], [2,5,8],
+            [0,4,8], [2,4,6]
+        ];
+
+        startBtn.onclick = () => {
+            mainMenu.style.display = 'none';
+            gameScreen.style.display = 'block';
+        };
+
+        backBtn.onclick = () => {
+            gameScreen.style.display = 'none';
+            mainMenu.style.display = 'block';
+        };
+
+        function handleCellClick(e) {
+            const idx = e.target.getAttribute('data-index');
+            if (gameState[idx] !== "" || !gameActive) return;
+
+            gameState[idx] = currentPlayer;
+            e.target.innerText = currentPlayer;
+            e.target.classList.add(currentPlayer.toLowerCase());
+            checkResult();
+        }
+
+        function checkResult() {
+            let win = false;
+            let winSeq = [];
+            for (let cond of winningConditions) {
+                if (gameState[cond[0]] && gameState[cond[0]] === gameState[cond[1]] && gameState[cond[0]] === gameState[cond[2]]) {
+                    win = true; winSeq = cond; break;
+                }
+            }
+
+            if (win) {
+                winSeq.forEach(i => cells[i].classList.add('bg-emerald-500/20', 'border-emerald-500'));
+                scores[currentPlayer]++;
+                updateScores();
+                showModal("انتهت الجولة!", `اللاعب ${currentPlayer} هو الفائز!`, "👑");
+                gameActive = false;
+            } else if (!gameState.includes("")) {
+                scores.draw++;
+                updateScores();
+                showModal("تعادل!", "لا يوجد فائز هذه المرة.", "⚔️");
+                gameActive = false;
+            } else {
+                currentPlayer = currentPlayer === "X" ? "O" : "X";
+                statusDisplay.innerText = currentPlayer;
+                statusDisplay.className = `font-bold text-xl ml-2 ${currentPlayer === 'X' ? 'text-red-400' : 'text-blue-400'}`;
+            }
+        }
+
+        function updateScores() {
+            scoreXDisplay.innerText = scores.X;
+            scoreODisplay.innerText = scores.O;
+            scoreDrawDisplay.innerText = scores.draw;
+        }
+
+        function showModal(title, text, icon) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-text').innerText = text;
+            document.getElementById('modal-icon').innerText = icon;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function resetGame() {
+            gameState = ["", "", "", "", "", "", "", "", ""];
+            gameActive = true;
+            currentPlayer = "X";
+            statusDisplay.innerText = "X";
+            statusDisplay.className = "font-bold text-red-400 text-xl ml-2";
+            cells.forEach(c => {
+                c.innerText = "";
+                c.classList.remove('x', 'o', 'bg-emerald-500/20', 'border-emerald-500');
+            });
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        cells.forEach(c => c.addEventListener('click', handleCellClick));
+        document.getElementById('reset-btn').onclick = resetGame;
+        document.getElementById('modal-close').onclick = resetGame;
+        document.getElementById('clear-scores').onclick = () => {
+            scores = { X: 0, O: 0, draw: 0 };
+            updateScores();
+            resetGame();
+        };
+
+    </script>
+</body>
+</html>
